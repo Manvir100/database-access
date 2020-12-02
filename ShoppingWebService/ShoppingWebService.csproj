@@ -41,7 +41,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -65,18 +73,63 @@
     <Content Include="App_Data\ShoppingDB_log.ldf">
       <DependentUpon>ShoppingDB.mdf</DependentUpon>
     </Content>
+    <Content Include="ShoppingDBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ShoppingDBModel.Context.cs</LastGenOutput>
+      <DependentUpon>ShoppingDBModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="ShoppingDBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ShoppingDBModel.edmx</DependentUpon>
+      <LastGenOutput>ShoppingDBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="ShoppingService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IShoppingService.cs" />
+    <Compile Include="PartialProduct.cs" />
+    <Compile Include="Product.cs">
+      <DependentUpon>ShoppingDBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingDBModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingDBModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingDBModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingDBModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShoppingDBModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ShoppingService.svc.cs">
       <DependentUpon>ShoppingService.svc</DependentUpon>
     </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>ShoppingDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs">
+      <DependentUpon>ShoppingDBModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="ShoppingDBModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingDBModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="packages.config" />
+    <Content Include="ShoppingDBModel.edmx.diagram">
+      <DependentUpon>ShoppingDBModel.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
