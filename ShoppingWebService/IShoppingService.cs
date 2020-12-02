@@ -12,6 +12,6 @@ namespace ShoppingWebService
     public interface IShoppingService
     {
         [OperationContract]
-        void DoWork();
+        List<Product> GetAllProducts();
     }
 }

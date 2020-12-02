@@ -11,8 +11,11 @@ namespace ShoppingWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select ShoppingService.svc or ShoppingService.svc.cs at the Solution Explorer and start debugging.
     public class ShoppingService : IShoppingService
     {
-        public void DoWork()
+        ShoppingDBEntities context = new ShoppingDBEntities();
+
+        public List<Product> GetAllProducts()
         {
+            return context.Products.ToList();
         }
     }
 }
