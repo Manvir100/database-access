@@ -37,7 +37,7 @@ namespace ShoppingWebService
         void DeleteProduct(Product product);
 
         [OperationContract]
-        //get products based on price from the Product table
-        List<Product> GetProductsByPrice(double price);
+        //get products greater than and equal to price from the Product table
+        List<Product> GetProductsGreaterThanOrEqualToPrice(double price);
     }
 }

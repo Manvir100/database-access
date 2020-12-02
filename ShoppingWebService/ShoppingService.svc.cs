@@ -52,10 +52,10 @@ namespace ShoppingWebService
             return context.Products.SingleOrDefault(p => p.Id == id);
         }
 
-        //get products based on price from the Product table
-        public List<Product> GetProductsByPrice(double price)
+        //get products greater than and equal to price from the Product table
+        public List<Product> GetProductsGreaterThanOrEqualToPrice(double price)
         {
-            return context.Products.Where(p => p.Price == price).Select(p => p).ToList();
+            return context.Products.Where(p => p.Price >= price).Select(p => p).ToList();
         }
     }
 }
