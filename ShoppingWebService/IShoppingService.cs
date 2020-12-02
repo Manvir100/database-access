@@ -13,5 +13,17 @@ namespace ShoppingWebService
     {
         [OperationContract]
         List<Product> GetAllProducts();
+
+        [OperationContract]
+        Product GetAProduct(int id);
+
+        [OperationContract]
+        void AddProduct(Product product);
+
+        [OperationContract]
+        void EditProduct(Product product);
+
+        [OperationContract]
+        void DeleteProduct(Product product);
     }
 }
