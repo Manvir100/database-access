@@ -41,5 +41,10 @@ namespace ShoppingWebService
         {
             return context.Products.SingleOrDefault(p => p.Id == id);
         }
+
+        public List<Product> GetProductsByPrice(double price)
+        {
+            return context.Products.Where(p => p.Price == price).Select(p => p).ToList();
+        }
     }
 }

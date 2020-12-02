@@ -25,5 +25,8 @@ namespace ShoppingWebService
 
         [OperationContract]
         void DeleteProduct(Product product);
+
+        [OperationContract]
+        List<Product> GetProductsByPrice(double price);
     }
 }
