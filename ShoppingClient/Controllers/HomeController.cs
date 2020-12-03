@@ -1,13 +1,10 @@
 ﻿using ShoppingClient.Models;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ShoppingClient.Controllers
@@ -23,20 +20,34 @@ namespace ShoppingClient.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Home(Login login)
+        public ActionResult Login(Login login)
         {
             tryLogin(login);
-            if(isLoggedIn()) 
+            if (isLoggedIn())
             {
-                ViewBag.name = login.Username;
-                return View();
+                ViewBag.name = getUserName();
+                return View("Home");
             }
             else
             {
                 ViewBag.fail = true;
                 return View("LoginForm");
             }
-           
+
+        }
+        public ActionResult Home()
+        {
+            if (isLoggedIn())
+            {
+                ViewBag.name = getUserName();
+                return View();
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("LoginForm");
+            }
+
         }
         public ActionResult Index()
         {
@@ -97,8 +108,14 @@ namespace ShoppingClient.Controllers
             if (password == hash(login.Password))
             {
                 HttpContext.Application["logged_in"] = true;
+                HttpContext.Application["user_name"] = login.Username;
             }
             Debug.WriteLine(hash(login.Password));
+        }
+
+        public string getUserName()
+        {
+            return (string) HttpContext.Application["user_name"];
         }
 
         public bool isLoggedIn()

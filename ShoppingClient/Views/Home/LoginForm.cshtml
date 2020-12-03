@@ -15,11 +15,11 @@
 <body>
     <div class="container col-4 text-center">
         <h1 class="display-4">Login</h1>
-        @using (Html.BeginForm("Home", "Home", FormMethod.Post))
+        @using (Html.BeginForm("Login", "Home", FormMethod.Post))
         {
             if (ViewBag.success == true)
             {
-                <p class="alert alert-success">You are already logged in. Feel free to relogin to change accounts.</p>
+                <p class="alert alert-success">You are already logged in. Relogin to change accounts.</p>
             }
             if (ViewBag.error == true)
             {

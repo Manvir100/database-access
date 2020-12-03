@@ -17,6 +17,7 @@ namespace ShoppingClient
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Application["logged_in"] = false;
+            Application["user_name"] = "";
         }
     }
 }
