@@ -17,6 +17,10 @@
         <h1 class="display-4">Login</h1>
         @using (Html.BeginForm("Home", "Home", FormMethod.Post))
         {
+            if (ViewBag.success == true)
+            {
+                <p class="alert alert-success">You are already logged in. Feel free to relogin to change accounts.</p>
+            }
             if (ViewBag.error == true)
             {
                 <p class="alert alert-warning">Access denied. Please login first.</p>

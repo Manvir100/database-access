@@ -16,6 +16,10 @@ namespace ShoppingClient.Controllers
     {
         public ActionResult LoginForm()
         {
+            if(isLoggedIn())
+            {
+                ViewBag.success = true;
+            }
             return View();
         }
         [HttpPost]
@@ -24,6 +28,7 @@ namespace ShoppingClient.Controllers
             tryLogin(login);
             if(isLoggedIn()) 
             {
+                ViewBag.name = login.Username;
                 return View();
             }
             else
