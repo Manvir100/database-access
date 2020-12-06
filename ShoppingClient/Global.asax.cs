@@ -16,6 +16,8 @@ namespace ShoppingClient
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Application["logged_in"] = false;
+            Application["user_name"] = "";
         }
     }
 }

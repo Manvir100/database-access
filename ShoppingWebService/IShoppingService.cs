@@ -37,6 +37,10 @@ namespace ShoppingWebService
         void DeleteProduct(Product product);
 
         [OperationContract]
+        //get a users account information by inputting a username
+        User GetUserByUsername(string username);
+
+        [OperationContract]
         //get products greater than and equal to price from the Product table
         List<Product> GetProductsGreaterThanOrEqualToPrice(double price);
     }

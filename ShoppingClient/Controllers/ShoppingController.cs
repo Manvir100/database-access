@@ -1,8 +1,6 @@
-﻿using ShoppingClient.ShoppingServiceReference;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using ShoppingClient.Models;
+using ShoppingClient.ShoppingServiceReference;
+using System.Diagnostics;
 using System.Web.Mvc;
 
 namespace ShoppingClient.Controllers
@@ -10,10 +8,56 @@ namespace ShoppingClient.Controllers
     public class ShoppingController : Controller
     {
         ShoppingServiceClient client = new ShoppingServiceClient();
-        // GET: Shopping
-        public ActionResult Index()
+        Hash hash = new Hash();
+
+        public ActionResult Login()
         {
-            return View(client.GetAllProducts());
+            if(isLoggedIn())
+            {
+                ViewBag.success = true;
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LoginSubmit(Userlogin login)
+        {
+            tryLogin(login);
+            if(isLoggedIn())
+            {
+                ViewBag.name = getUserName();
+                return View("Home");
+            }
+            else
+            {
+                ViewBag.fail = true;
+                return View("Login");
+            }
+        }
+        public ActionResult Home()
+        {
+            if(isLoggedIn())
+            {
+                ViewBag.name = getUserName();
+                return View();
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult Products()
+        {
+            if(isLoggedIn())
+            {
+                return View(client.GetAllProducts());
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
         }
 
         // GET: Shopping/Details/5
@@ -87,5 +131,30 @@ namespace ShoppingClient.Controllers
                 return View();
             }
         }
+
+        public void tryLogin(Userlogin login)
+        {
+            User user = client.GetUserByUsername(login.Username);
+            if (user == null)
+            {
+                return;
+            }
+            if (user.Password == hash.HashPassword(login.Password))
+            {
+                HttpContext.Application["logged_in"] = true;
+                HttpContext.Application["user_name"] = login.Username;
+            }
+        }
+
+        public string getUserName()
+        {
+            return (string)HttpContext.Application["user_name"];
+        }
+
+        public bool isLoggedIn()
+        {
+            return (bool)HttpContext.Application["logged_in"];
+        }
+
     }
 }

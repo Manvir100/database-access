@@ -63,6 +63,20 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUserByUsername">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByUsernameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ShoppingWebService" minOccurs="0" name="GetUserByUsernameResult" nillable="true" type="q6:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetProductsGreaterThanOrEqualToPrice">
     <xs:complexType>
       <xs:sequence>
@@ -73,7 +87,7 @@
   <xs:element name="GetProductsGreaterThanOrEqualToPriceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ShoppingWebService" minOccurs="0" name="GetProductsGreaterThanOrEqualToPriceResult" nillable="true" type="q6:ArrayOfProduct" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ShoppingWebService" minOccurs="0" name="GetProductsGreaterThanOrEqualToPriceResult" nillable="true" type="q7:ArrayOfProduct" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

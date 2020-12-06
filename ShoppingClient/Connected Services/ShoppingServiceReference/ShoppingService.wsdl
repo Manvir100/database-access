@@ -37,6 +37,12 @@
   <wsdl:message name="IShoppingService_DeleteProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
   </wsdl:message>
+  <wsdl:message name="IShoppingService_GetUserByUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUsername" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_GetUserByUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUsernameResponse" />
+  </wsdl:message>
   <wsdl:message name="IShoppingService_GetProductsGreaterThanOrEqualToPrice_InputMessage">
     <wsdl:part name="parameters" element="tns:GetProductsGreaterThanOrEqualToPrice" />
   </wsdl:message>
@@ -63,6 +69,10 @@
     <wsdl:operation name="DeleteProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/DeleteProduct" message="tns:IShoppingService_DeleteProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/DeleteProductResponse" message="tns:IShoppingService_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetUserByUsername" message="tns:IShoppingService_GetUserByUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/GetUserByUsernameResponse" message="tns:IShoppingService_GetUserByUsername_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetProductsGreaterThanOrEqualToPrice">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetProductsGreaterThanOrEqualToPrice" message="tns:IShoppingService_GetProductsGreaterThanOrEqualToPrice_InputMessage" />
@@ -109,6 +119,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteProduct">
       <soap:operation soapAction="http://tempuri.org/IShoppingService/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUsername">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/GetUserByUsername" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

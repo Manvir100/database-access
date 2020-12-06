@@ -122,6 +122,99 @@ namespace ShoppingClient.ShoppingServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/ShoppingWebService")]
+    [System.SerializableAttribute()]
+    public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> UserInfoIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> UserInfoId {
+            get {
+                return this.UserInfoIdField;
+            }
+            set {
+                if ((this.UserInfoIdField.Equals(value) != true)) {
+                    this.UserInfoIdField = value;
+                    this.RaisePropertyChanged("UserInfoId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ShoppingServiceReference.IShoppingService")]
     public interface IShoppingService {
@@ -155,6 +248,12 @@ namespace ShoppingClient.ShoppingServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/DeleteProduct", ReplyAction="http://tempuri.org/IShoppingService/DeleteProductResponse")]
         System.Threading.Tasks.Task DeleteProductAsync(ShoppingClient.ShoppingServiceReference.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetUserByUsername", ReplyAction="http://tempuri.org/IShoppingService/GetUserByUsernameResponse")]
+        ShoppingClient.ShoppingServiceReference.User GetUserByUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetUserByUsername", ReplyAction="http://tempuri.org/IShoppingService/GetUserByUsernameResponse")]
+        System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.User> GetUserByUsernameAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetProductsGreaterThanOrEqualToPrice", ReplyAction="http://tempuri.org/IShoppingService/GetProductsGreaterThanOrEqualToPriceResponse")]
         ShoppingClient.ShoppingServiceReference.Product[] GetProductsGreaterThanOrEqualToPrice(double price);
@@ -228,6 +327,14 @@ namespace ShoppingClient.ShoppingServiceReference {
         
         public System.Threading.Tasks.Task DeleteProductAsync(ShoppingClient.ShoppingServiceReference.Product product) {
             return base.Channel.DeleteProductAsync(product);
+        }
+        
+        public ShoppingClient.ShoppingServiceReference.User GetUserByUsername(string username) {
+            return base.Channel.GetUserByUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.User> GetUserByUsernameAsync(string username) {
+            return base.Channel.GetUserByUsernameAsync(username);
         }
         
         public ShoppingClient.ShoppingServiceReference.Product[] GetProductsGreaterThanOrEqualToPrice(double price) {

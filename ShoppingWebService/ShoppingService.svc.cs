@@ -52,6 +52,11 @@ namespace ShoppingWebService
             return context.Products.SingleOrDefault(p => p.Id == id);
         }
 
+        public User GetUserByUsername(string username)
+        {
+            return context.Users.SingleOrDefault(u => u.Username == username);
+        }
+
         //get products greater than and equal to price from the Product table
         public List<Product> GetProductsGreaterThanOrEqualToPrice(double price)
         {
