@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingWebService", "ShoppingWebService\ShoppingWebService.csproj", "{E99D5707-FAB1-4656-9634-B72DF9A81EC8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingClient", "ShoppingClient\ShoppingClient.csproj", "{2FF87D70-4E59-4D13-911D-7009CFE0E1C5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E99D5707-FAB1-4656-9634-B72DF9A81EC8} = {E99D5707-FAB1-4656-9634-B72DF9A81EC8}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
