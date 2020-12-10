@@ -1,6 +1,5 @@
 ﻿using ShoppingClient.Models;
 using ShoppingClient.ShoppingServiceReference;
-using System.Diagnostics;
 using System.Web.Mvc;
 
 namespace ShoppingClient.Controllers
@@ -14,19 +13,110 @@ namespace ShoppingClient.Controllers
         {
             if(isLoggedIn())
             {
-                ViewBag.success = true;
+                ViewBag.name = getUserName();
+                return View("Home");
             }
             return View();
         }
+        public ActionResult Logout()
+        {
+            tryLogout();
+            ViewBag.success = true;
+            return View("Login");
+        }
 
         [HttpPost]
-        public ActionResult LoginSubmit(Userlogin login)
+        public ActionResult LoginSubmit(Userlogin login = null)
         {
             tryLogin(login);
             if(isLoggedIn())
             {
                 ViewBag.name = getUserName();
                 return View("Home");
+            }
+            else
+            {
+                ViewBag.fail = true;
+                return View("Login");
+            }
+        }
+        [HttpPost]
+        public ActionResult ProductSubmit(Product product)
+        {
+            if (isLoggedIn())
+            {
+                client.AddProduct(product);
+                return View("Products", client.GetAllProducts());
+            }
+            else
+            {
+                ViewBag.fail = true;
+                return View("Login");
+            }
+        }
+        [HttpPost]
+        public ActionResult UserSubmit(User user)
+        {
+            if (isLoggedIn())
+            {
+                client.AddUser(user);
+                return View("Users", client.GetAllUsers());
+            }
+            else
+            {
+                ViewBag.fail = true;
+                return View("Login");
+            }
+        }
+        [HttpPost]
+        public ActionResult UserInfosSubmit(UserInfo userInfo)
+        {
+            if (isLoggedIn())
+            {
+                client.AddUserInfos(userInfo);
+                return View("UserInfos", client.GetAllUserInfos());
+            }
+            else
+            {
+                ViewBag.fail = true;
+                return View("Login");
+            }
+        }
+        [HttpPost]
+        public ActionResult ProductEditSubmit(Product product)
+        {
+            if (isLoggedIn())
+            {
+                client.EditProduct(product);
+                return View("Products", client.GetAllProducts());
+            }
+            else
+            {
+                ViewBag.fail = true;
+                return View("Login");
+            }
+        }
+        [HttpPost]
+        public ActionResult UserEditSubmit(User user)
+        {
+            if (isLoggedIn())
+            {
+                client.EditUser(user);
+                return View("Users", client.GetAllUsers());
+            }
+            else
+            {
+                ViewBag.fail = true;
+                return View("Login");
+            }
+        }
+        [HttpPost]
+        public ActionResult UserInfosEditSubmit(UserInfo userInfo)
+        {
+            if (isLoggedIn())
+            {
+                client.EditUserInfos(userInfo);
+                return View("UserInfos", client.GetAllUserInfos());
             }
             else
             {
@@ -47,11 +137,182 @@ namespace ShoppingClient.Controllers
                 return View("Login");
             }
         }
+        public ActionResult EditProduct(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                return View(client.GetAProduct(id));
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult EditUser(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                return View(client.GetAUser(id));
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult EditUserInfos(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                return View(client.GetAUserInfos(id));
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult CreateProduct()
+        {
+            if (isLoggedIn())
+            {
+                return View();
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult CreateUser()
+        {
+            if (isLoggedIn())
+            {
+                return View();
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult CreateUserInfos()
+        {
+            if (isLoggedIn())
+            {
+                return View();
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
         public ActionResult Products()
         {
             if(isLoggedIn())
             {
                 return View(client.GetAllProducts());
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult ProductsDetails(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                return View(client.GetAProduct(id));
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult DeleteUser(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                client.DeleteUser(id);
+                return View("Users", client.GetAllUsers());
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult DeleteUserInfos(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                client.DeleteUserInfos(id);
+                return View("UserInfos", client.GetAllUserInfos());
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult DeleteProduct(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                client.DeleteProduct(id);
+                return View("Products", client.GetAllProducts());
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult Users()
+        {
+            if (isLoggedIn())
+            {
+                return View(client.GetAllUsers());
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult UsersDetails(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                return View(client.GetAUser(id));
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult UserInfosDetails(int id = 1)
+        {
+            if (isLoggedIn())
+            {
+                return View(client.GetAUserInfos(id));
+            }
+            else
+            {
+                ViewBag.error = true;
+                return View("Login");
+            }
+        }
+        public ActionResult UserInfos()
+        {
+            if (isLoggedIn())
+            {
+                return View(client.GetAllUserInfos());
             }
             else
             {
@@ -132,6 +393,11 @@ namespace ShoppingClient.Controllers
             }
         }
 
+        public ActionResult GetProductsByPrice(double productPrice)
+        {
+            return View(client.GetProductsGreaterThanOrEqualToPrice(productPrice));
+        }
+
         public void tryLogin(Userlogin login)
         {
             User user = client.GetUserByUsername(login.Username);
@@ -142,8 +408,13 @@ namespace ShoppingClient.Controllers
             if (user.Password == hash.HashPassword(login.Password))
             {
                 HttpContext.Application["logged_in"] = true;
-                HttpContext.Application["user_name"] = login.Username;
+                HttpContext.Application["user_name"] = user.Username;
             }
+        }
+        public void tryLogout()
+        {
+            HttpContext.Application["logged_in"] = false;
+            HttpContext.Application["user_name"] = "";
         }
 
         public string getUserName()

@@ -215,6 +215,115 @@ namespace ShoppingClient.ShoppingServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserInfo", Namespace="http://schemas.datacontract.org/2004/07/ShoppingWebService")]
+    [System.SerializableAttribute()]
+    public partial class UserInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DateCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneNumberField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DateCreated {
+            get {
+                return this.DateCreatedField;
+            }
+            set {
+                if ((this.DateCreatedField.Equals(value) != true)) {
+                    this.DateCreatedField = value;
+                    this.RaisePropertyChanged("DateCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhoneNumber {
+            get {
+                return this.PhoneNumberField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneNumberField, value) != true)) {
+                    this.PhoneNumberField = value;
+                    this.RaisePropertyChanged("PhoneNumber");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ShoppingServiceReference.IShoppingService")]
     public interface IShoppingService {
@@ -225,11 +334,35 @@ namespace ShoppingClient.ShoppingServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAllProducts", ReplyAction="http://tempuri.org/IShoppingService/GetAllProductsResponse")]
         System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.Product[]> GetAllProductsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAllUsers", ReplyAction="http://tempuri.org/IShoppingService/GetAllUsersResponse")]
+        ShoppingClient.ShoppingServiceReference.User[] GetAllUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAllUsers", ReplyAction="http://tempuri.org/IShoppingService/GetAllUsersResponse")]
+        System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.User[]> GetAllUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAllUserInfos", ReplyAction="http://tempuri.org/IShoppingService/GetAllUserInfosResponse")]
+        ShoppingClient.ShoppingServiceReference.UserInfo[] GetAllUserInfos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAllUserInfos", ReplyAction="http://tempuri.org/IShoppingService/GetAllUserInfosResponse")]
+        System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.UserInfo[]> GetAllUserInfosAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAProduct", ReplyAction="http://tempuri.org/IShoppingService/GetAProductResponse")]
         ShoppingClient.ShoppingServiceReference.Product GetAProduct(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAProduct", ReplyAction="http://tempuri.org/IShoppingService/GetAProductResponse")]
         System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.Product> GetAProductAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAUser", ReplyAction="http://tempuri.org/IShoppingService/GetAUserResponse")]
+        ShoppingClient.ShoppingServiceReference.User GetAUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAUser", ReplyAction="http://tempuri.org/IShoppingService/GetAUserResponse")]
+        System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.User> GetAUserAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAUserInfos", ReplyAction="http://tempuri.org/IShoppingService/GetAUserInfosResponse")]
+        ShoppingClient.ShoppingServiceReference.UserInfo GetAUserInfos(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetAUserInfos", ReplyAction="http://tempuri.org/IShoppingService/GetAUserInfosResponse")]
+        System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.UserInfo> GetAUserInfosAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/AddProduct", ReplyAction="http://tempuri.org/IShoppingService/AddProductResponse")]
         void AddProduct(ShoppingClient.ShoppingServiceReference.Product product);
@@ -237,17 +370,53 @@ namespace ShoppingClient.ShoppingServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/AddProduct", ReplyAction="http://tempuri.org/IShoppingService/AddProductResponse")]
         System.Threading.Tasks.Task AddProductAsync(ShoppingClient.ShoppingServiceReference.Product product);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/AddUser", ReplyAction="http://tempuri.org/IShoppingService/AddUserResponse")]
+        void AddUser(ShoppingClient.ShoppingServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/AddUser", ReplyAction="http://tempuri.org/IShoppingService/AddUserResponse")]
+        System.Threading.Tasks.Task AddUserAsync(ShoppingClient.ShoppingServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/AddUserInfos", ReplyAction="http://tempuri.org/IShoppingService/AddUserInfosResponse")]
+        void AddUserInfos(ShoppingClient.ShoppingServiceReference.UserInfo userInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/AddUserInfos", ReplyAction="http://tempuri.org/IShoppingService/AddUserInfosResponse")]
+        System.Threading.Tasks.Task AddUserInfosAsync(ShoppingClient.ShoppingServiceReference.UserInfo userInfo);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/EditProduct", ReplyAction="http://tempuri.org/IShoppingService/EditProductResponse")]
         void EditProduct(ShoppingClient.ShoppingServiceReference.Product product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/EditProduct", ReplyAction="http://tempuri.org/IShoppingService/EditProductResponse")]
         System.Threading.Tasks.Task EditProductAsync(ShoppingClient.ShoppingServiceReference.Product product);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/DeleteProduct", ReplyAction="http://tempuri.org/IShoppingService/DeleteProductResponse")]
-        void DeleteProduct(ShoppingClient.ShoppingServiceReference.Product product);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/EditUser", ReplyAction="http://tempuri.org/IShoppingService/EditUserResponse")]
+        void EditUser(ShoppingClient.ShoppingServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/EditUser", ReplyAction="http://tempuri.org/IShoppingService/EditUserResponse")]
+        System.Threading.Tasks.Task EditUserAsync(ShoppingClient.ShoppingServiceReference.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/EditUserInfos", ReplyAction="http://tempuri.org/IShoppingService/EditUserInfosResponse")]
+        void EditUserInfos(ShoppingClient.ShoppingServiceReference.UserInfo userInfo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/EditUserInfos", ReplyAction="http://tempuri.org/IShoppingService/EditUserInfosResponse")]
+        System.Threading.Tasks.Task EditUserInfosAsync(ShoppingClient.ShoppingServiceReference.UserInfo userInfo);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/DeleteProduct", ReplyAction="http://tempuri.org/IShoppingService/DeleteProductResponse")]
-        System.Threading.Tasks.Task DeleteProductAsync(ShoppingClient.ShoppingServiceReference.Product product);
+        void DeleteProduct(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/DeleteProduct", ReplyAction="http://tempuri.org/IShoppingService/DeleteProductResponse")]
+        System.Threading.Tasks.Task DeleteProductAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/DeleteUser", ReplyAction="http://tempuri.org/IShoppingService/DeleteUserResponse")]
+        void DeleteUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/DeleteUser", ReplyAction="http://tempuri.org/IShoppingService/DeleteUserResponse")]
+        System.Threading.Tasks.Task DeleteUserAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/DeleteUserInfos", ReplyAction="http://tempuri.org/IShoppingService/DeleteUserInfosResponse")]
+        void DeleteUserInfos(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/DeleteUserInfos", ReplyAction="http://tempuri.org/IShoppingService/DeleteUserInfosResponse")]
+        System.Threading.Tasks.Task DeleteUserInfosAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IShoppingService/GetUserByUsername", ReplyAction="http://tempuri.org/IShoppingService/GetUserByUsernameResponse")]
         ShoppingClient.ShoppingServiceReference.User GetUserByUsername(string username);
@@ -297,12 +466,44 @@ namespace ShoppingClient.ShoppingServiceReference {
             return base.Channel.GetAllProductsAsync();
         }
         
+        public ShoppingClient.ShoppingServiceReference.User[] GetAllUsers() {
+            return base.Channel.GetAllUsers();
+        }
+        
+        public System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.User[]> GetAllUsersAsync() {
+            return base.Channel.GetAllUsersAsync();
+        }
+        
+        public ShoppingClient.ShoppingServiceReference.UserInfo[] GetAllUserInfos() {
+            return base.Channel.GetAllUserInfos();
+        }
+        
+        public System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.UserInfo[]> GetAllUserInfosAsync() {
+            return base.Channel.GetAllUserInfosAsync();
+        }
+        
         public ShoppingClient.ShoppingServiceReference.Product GetAProduct(int id) {
             return base.Channel.GetAProduct(id);
         }
         
         public System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.Product> GetAProductAsync(int id) {
             return base.Channel.GetAProductAsync(id);
+        }
+        
+        public ShoppingClient.ShoppingServiceReference.User GetAUser(int id) {
+            return base.Channel.GetAUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.User> GetAUserAsync(int id) {
+            return base.Channel.GetAUserAsync(id);
+        }
+        
+        public ShoppingClient.ShoppingServiceReference.UserInfo GetAUserInfos(int id) {
+            return base.Channel.GetAUserInfos(id);
+        }
+        
+        public System.Threading.Tasks.Task<ShoppingClient.ShoppingServiceReference.UserInfo> GetAUserInfosAsync(int id) {
+            return base.Channel.GetAUserInfosAsync(id);
         }
         
         public void AddProduct(ShoppingClient.ShoppingServiceReference.Product product) {
@@ -313,6 +514,22 @@ namespace ShoppingClient.ShoppingServiceReference {
             return base.Channel.AddProductAsync(product);
         }
         
+        public void AddUser(ShoppingClient.ShoppingServiceReference.User user) {
+            base.Channel.AddUser(user);
+        }
+        
+        public System.Threading.Tasks.Task AddUserAsync(ShoppingClient.ShoppingServiceReference.User user) {
+            return base.Channel.AddUserAsync(user);
+        }
+        
+        public void AddUserInfos(ShoppingClient.ShoppingServiceReference.UserInfo userInfo) {
+            base.Channel.AddUserInfos(userInfo);
+        }
+        
+        public System.Threading.Tasks.Task AddUserInfosAsync(ShoppingClient.ShoppingServiceReference.UserInfo userInfo) {
+            return base.Channel.AddUserInfosAsync(userInfo);
+        }
+        
         public void EditProduct(ShoppingClient.ShoppingServiceReference.Product product) {
             base.Channel.EditProduct(product);
         }
@@ -321,12 +538,44 @@ namespace ShoppingClient.ShoppingServiceReference {
             return base.Channel.EditProductAsync(product);
         }
         
-        public void DeleteProduct(ShoppingClient.ShoppingServiceReference.Product product) {
-            base.Channel.DeleteProduct(product);
+        public void EditUser(ShoppingClient.ShoppingServiceReference.User user) {
+            base.Channel.EditUser(user);
         }
         
-        public System.Threading.Tasks.Task DeleteProductAsync(ShoppingClient.ShoppingServiceReference.Product product) {
-            return base.Channel.DeleteProductAsync(product);
+        public System.Threading.Tasks.Task EditUserAsync(ShoppingClient.ShoppingServiceReference.User user) {
+            return base.Channel.EditUserAsync(user);
+        }
+        
+        public void EditUserInfos(ShoppingClient.ShoppingServiceReference.UserInfo userInfo) {
+            base.Channel.EditUserInfos(userInfo);
+        }
+        
+        public System.Threading.Tasks.Task EditUserInfosAsync(ShoppingClient.ShoppingServiceReference.UserInfo userInfo) {
+            return base.Channel.EditUserInfosAsync(userInfo);
+        }
+        
+        public void DeleteProduct(int id) {
+            base.Channel.DeleteProduct(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductAsync(int id) {
+            return base.Channel.DeleteProductAsync(id);
+        }
+        
+        public void DeleteUser(int id) {
+            base.Channel.DeleteUser(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteUserAsync(int id) {
+            return base.Channel.DeleteUserAsync(id);
+        }
+        
+        public void DeleteUserInfos(int id) {
+            base.Channel.DeleteUserInfos(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteUserInfosAsync(int id) {
+            return base.Channel.DeleteUserInfosAsync(id);
         }
         
         public ShoppingClient.ShoppingServiceReference.User GetUserByUsername(string username) {

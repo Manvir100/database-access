@@ -13,11 +13,35 @@
   <wsdl:message name="IShoppingService_GetAllProducts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllProductsResponse" />
   </wsdl:message>
+  <wsdl:message name="IShoppingService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_GetAllUserInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserInfos" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_GetAllUserInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserInfosResponse" />
+  </wsdl:message>
   <wsdl:message name="IShoppingService_GetAProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAProduct" />
   </wsdl:message>
   <wsdl:message name="IShoppingService_GetAProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_GetAUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAUser" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_GetAUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_GetAUserInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAUserInfos" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_GetAUserInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAUserInfosResponse" />
   </wsdl:message>
   <wsdl:message name="IShoppingService_AddProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:AddProduct" />
@@ -25,17 +49,53 @@
   <wsdl:message name="IShoppingService_AddProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddProductResponse" />
   </wsdl:message>
+  <wsdl:message name="IShoppingService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_AddUserInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserInfos" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_AddUserInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserInfosResponse" />
+  </wsdl:message>
   <wsdl:message name="IShoppingService_EditProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:EditProduct" />
   </wsdl:message>
   <wsdl:message name="IShoppingService_EditProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditProductResponse" />
   </wsdl:message>
+  <wsdl:message name="IShoppingService_EditUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditUser" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_EditUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_EditUserInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditUserInfos" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_EditUserInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditUserInfosResponse" />
+  </wsdl:message>
   <wsdl:message name="IShoppingService_DeleteProduct_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProduct" />
   </wsdl:message>
   <wsdl:message name="IShoppingService_DeleteProduct_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_DeleteUserInfos_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserInfos" />
+  </wsdl:message>
+  <wsdl:message name="IShoppingService_DeleteUserInfos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserInfosResponse" />
   </wsdl:message>
   <wsdl:message name="IShoppingService_GetUserByUsername_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserByUsername" />
@@ -54,21 +114,61 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetAllProducts" message="tns:IShoppingService_GetAllProducts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/GetAllProductsResponse" message="tns:IShoppingService_GetAllProducts_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetAllUsers" message="tns:IShoppingService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/GetAllUsersResponse" message="tns:IShoppingService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetAllUserInfos" message="tns:IShoppingService_GetAllUserInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/GetAllUserInfosResponse" message="tns:IShoppingService_GetAllUserInfos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetAProduct" message="tns:IShoppingService_GetAProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/GetAProductResponse" message="tns:IShoppingService_GetAProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetAUser" message="tns:IShoppingService_GetAUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/GetAUserResponse" message="tns:IShoppingService_GetAUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAUserInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetAUserInfos" message="tns:IShoppingService_GetAUserInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/GetAUserInfosResponse" message="tns:IShoppingService_GetAUserInfos_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/AddProduct" message="tns:IShoppingService_AddProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/AddProductResponse" message="tns:IShoppingService_AddProduct_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/AddUser" message="tns:IShoppingService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/AddUserResponse" message="tns:IShoppingService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/AddUserInfos" message="tns:IShoppingService_AddUserInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/AddUserInfosResponse" message="tns:IShoppingService_AddUserInfos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="EditProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/EditProduct" message="tns:IShoppingService_EditProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/EditProductResponse" message="tns:IShoppingService_EditProduct_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="EditUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/EditUser" message="tns:IShoppingService_EditUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/EditUserResponse" message="tns:IShoppingService_EditUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditUserInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/EditUserInfos" message="tns:IShoppingService_EditUserInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/EditUserInfosResponse" message="tns:IShoppingService_EditUserInfos_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DeleteProduct">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/DeleteProduct" message="tns:IShoppingService_DeleteProduct_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/DeleteProductResponse" message="tns:IShoppingService_DeleteProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/DeleteUser" message="tns:IShoppingService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/DeleteUserResponse" message="tns:IShoppingService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserInfos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/DeleteUserInfos" message="tns:IShoppingService_DeleteUserInfos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IShoppingService/DeleteUserInfosResponse" message="tns:IShoppingService_DeleteUserInfos_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUserByUsername">
       <wsdl:input wsaw:Action="http://tempuri.org/IShoppingService/GetUserByUsername" message="tns:IShoppingService_GetUserByUsername_InputMessage" />
@@ -90,8 +190,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserInfos">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/GetAllUserInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAProduct">
       <soap:operation soapAction="http://tempuri.org/IShoppingService/GetAProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAUser">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/GetAUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAUserInfos">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/GetAUserInfos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -108,6 +244,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInfos">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/AddUserInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="EditProduct">
       <soap:operation soapAction="http://tempuri.org/IShoppingService/EditProduct" style="document" />
       <wsdl:input>
@@ -117,8 +271,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="EditUser">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/EditUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditUserInfos">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/EditUserInfos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DeleteProduct">
       <soap:operation soapAction="http://tempuri.org/IShoppingService/DeleteProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserInfos">
+      <soap:operation soapAction="http://tempuri.org/IShoppingService/DeleteUserInfos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
