@@ -21,20 +21,60 @@ namespace ShoppingWebService
         List<Product> GetAllProducts();
 
         [OperationContract]
+        //Returns all users in the User table
+        List<User> GetAllUsers();
+
+        [OperationContract]
+        //Returns all userinfos in the Userinfo table
+        List<UserInfo> GetAllUserInfos();
+            
+        [OperationContract]
         //Returns a product based on it's id from the Product table
         Product GetAProduct(int id);
+
+        [OperationContract]
+        //Returns a product based on it's id from the Product table
+        User GetAUser(int id);
+
+        [OperationContract]
+        //Returns a product based on it's id from the Product table
+        UserInfo GetAUserInfos(int id);
 
         [OperationContract]
         //add a product to the Product table
         void AddProduct(Product product);
 
         [OperationContract]
+        //add a product to the Product table
+        void AddUser(User user);
+
+        [OperationContract]
+        //add a product to the Product table
+        void AddUserInfos(UserInfo userInfo);
+
+        [OperationContract]
         //edit a product from the Product table
         void EditProduct(Product product);
 
         [OperationContract]
+        //edit a product from the Product table
+        void EditUser(User user);
+
+        [OperationContract]
+        //edit a product from the Product table
+        void EditUserInfos(UserInfo userInfo);
+
+        [OperationContract]
         //remove a product from the Product table
-        void DeleteProduct(Product product);
+        void DeleteProduct(int id);
+
+        [OperationContract]
+        //remove a product from the Product table
+        void DeleteUser(int id);
+
+        [OperationContract]
+        //remove a product from the Product table
+        void DeleteUserInfos(int id);
 
         [OperationContract]
         //get a users account information by inputting a username
