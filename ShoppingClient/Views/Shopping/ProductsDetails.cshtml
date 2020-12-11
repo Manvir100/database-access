@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ShoppingClient.ShoppingServiceReference.Product
+
+@{
     Layout = null;
 }
 
@@ -8,7 +10,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width" />
-    <title>Home</title>
+    <title>ProductsDetails</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
@@ -18,23 +20,53 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="@Url.Action("Products", "Shopping")">Products</a>
+                <a class="nav-item nav-link active" href="@Url.Action("Products", "Shopping")">Products</a>
                 <a class="nav-item nav-link" href="@Url.Action("Users", "Shopping")">Users</a>
                 <a class="nav-item nav-link" href="@Url.Action("UserInfos", "Shopping")">User Info</a>
                 <a class="nav-item nav-link" href="@Url.Action("Logout", "Shopping")">Logout</a>
             </div>
         </div>
     </nav>
-    <div class="container col-4 text-center">
-        <h1 class="display-4">Welcome @ViewBag.name</h1>
-        <p>User any of the navigation links in the navigation bar to see different database tables where you can perform CRUD operations.</p>
-        <img src="https://i.pinimg.com/originals/6c/e9/e6/6ce9e663fab92ddccc6cf5f29053be64.gif" class="img-fluid" alt="Responsive image">
+    <div class="container col-6 text-center">
+        <h1 class="display-4">Product Info</h1>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Supplier)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Supplier)
+            </dd>
+
+        </dl>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-

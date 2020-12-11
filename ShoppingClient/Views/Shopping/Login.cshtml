@@ -1,7 +1,6 @@
 ﻿@model ShoppingClient.Models.Userlogin
 
 @{
-    ViewBag.Title = "Login";
     Layout = null;
 }
 
@@ -11,7 +10,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>Login</title>
 </head>
 <body>
     <div class="container col-4 text-center">
@@ -20,7 +19,7 @@
         {
             if (ViewBag.success == true)
             {
-                <p class="alert alert-success">You are already logged in. Relogin to change accounts.</p>
+                <p class="alert alert-success">You have logged out.</p>
             }
             if (ViewBag.error == true)
             {
